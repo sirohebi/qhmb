@@ -1,2 +1,15 @@
 <!--miniprogram/pages/logins/logins.wxml-->
-<text>miniprogram/pages/logins/logins.wxml</text>
+<view class="container">
+	<view class="content">
+		<text class="title">用户登陆</text>
+		<view class="login">
+			<l-input label="账号" />
+			<l-input label="密码"></l-input>
+			<view class="help_repwd">
+				<text>用户注册</text>
+				<text>忘记密码</text>
+			</view>
+			<l-button class="sumbit">登陆</l-button>
+		</view>
+	</view>
+</view>
