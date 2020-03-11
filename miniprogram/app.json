@@ -1,0 +1,17 @@
+{
+	"pages": [
+		"pages/logins/logins",
+		"pages/reg_user/reg_user",
+		"pages/pwd_re/pwd_re",
+		"pages/index/index"
+	],
+	"window": {
+		"backgroundColor": "#F6F6F6",
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#F6F6F6",
+		"navigationBarTitleText": "云开发 QuickStart",
+		"navigationBarTextStyle": "black"
+	},
+	"sitemapLocation": "sitemap.json",
+	"style": "v2"
+}
