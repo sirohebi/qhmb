@@ -20,15 +20,18 @@
 
 .login{
 	background-color: #ededed;
-	width: 600rpx;
+	width: 500rpx;
 }
 
 .help_repwd{
+	width: 500rpx;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	font-size: 24rpx;
+	margin-top: 10rpx;
 }
 
 .sumbit{
-	margin: 0 auto;
+	margin: 30rpx auto;
 }

@@ -5,7 +5,8 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-
+		nameNotNull: true,
+		pwdNotNull: true
 	},
 
 	/**
@@ -13,6 +14,50 @@ Page({
 	 */
 	onLoad: function (options) {
 
+	},
+
+	userName: function (event){
+		let userName = event.detail.value
+		if(userName != ""){
+			this.setData({
+				nameNotNull: false
+			})
+		}else{
+			this.setData({
+				nameNotNull: true
+			})
+		}
+	},
+
+	userPwd: function (event){
+		let userPwd = event.detail.value
+		if(userPwd != ""){
+			this.setData({
+				pwdNotNull: false
+			})
+		}else{
+			this.setData({
+				pwdNotNull: true
+			})
+		}
+	},
+	
+	user_reg: function (){
+		wx.navigateTo({
+			url: '../reg_user/reg_user',
+		})
+	},
+
+	pwd_re: function (){
+		wx.navigateTo({
+			url: '../pwd_re/pwd_re',
+		})
+	},
+
+	userLogin: function (){
+		wx.navigateTo({
+			url: '../index/index',
+		})
 	},
 
 	/**

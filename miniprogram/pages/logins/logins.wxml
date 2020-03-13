@@ -3,13 +3,13 @@
 	<view class="content">
 		<text class="title">用户登陆</text>
 		<view class="login">
-			<l-input label="账号" />
-			<l-input label="密码"></l-input>
-			<view class="help_repwd">
-				<text>用户注册</text>
-				<text>忘记密码</text>
-			</view>
-			<l-button class="sumbit">登陆</l-button>
+			<l-input type="text" label-width="100" bind:linblur="userName" label="账号" />
+			<l-input type="password" label-width="100" bind:linblur="userPwd" label="密码"></l-input>
 		</view>
+		<view class="help_repwd">
+			<text bindtap="user_reg">用户注册</text>
+			<text bindtap="pwd_re">忘记密码</text>
+		</view>
+		<l-button bind:lintap="userLogin" disabled="{{userNotNull | pwdNotNull}}" class="sumbit">登陆</l-button>
 	</view>
 </view>
