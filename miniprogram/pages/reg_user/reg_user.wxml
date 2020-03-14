@@ -1,14 +1,14 @@
 <!--miniprogram/pages/reg_user/reg_user.wxml-->
 <view class="container">
 	<view class="content">
-		<text>用户注册</text>
+		<text class="title">用户注册</text>
 		<view class="registr">
-			<l-input class="username" label-layout="right" type="text" label="用户名" />
-			<l-input class="move_phone" label-layout="right" type="number" label="联系电话" />
-			<l-input class="userPwd" label-layout="right" type="password" label="密码" />
-			<l-input class="_userPwd" label-layout="right" type="password" label="再输入密码" />
-			<l-input class="invited_code" label-layout="right" type="text" label="邀请码" />
+			<l-input label-width="180" class="username" label-layout="right" type="text" label="用户名" />
+			<l-input label-width="180" class="move_phone" label-layout="right" type="number" label="联系电话" />
+			<l-input label-width="180" class="userPwd" label-layout="right" type="password" label="密码" />
+			<l-input label-width="180" class="_userPwd" label-layout="right" type="password" label="再输入密码" />
+			<l-input label-width="180" class="invited_code" label-layout="right" type="text" label="邀请码" />
 		</view>
-		<l-button>提交注册</l-button>
+		<l-button class="reg_sumbit">提交注册</l-button>
 	</view>
 </view>
