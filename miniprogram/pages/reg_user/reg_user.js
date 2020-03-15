@@ -5,8 +5,8 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		code: [],
-		name:{required: true}
+		rulesCode: [true, true, true, true],
+		regsumbit: true
 	},
 
 	/**
@@ -16,8 +16,46 @@ Page({
 		
 	},
 
-	nameRules: function (event){
-		
+	registrUserName: function (event) {
+		let name = event.detail.value
+		let param = {}
+		let rulesCode = this.data.rulesCode
+		if (name != "") {
+			if (name.length < 3 | name.length > 12) {
+				wx.showToast({
+					title: '用户名最少3个字符，最多12个字符',
+					icon: "none",
+					duration: 2000
+				})
+				
+			}else{
+				param[rulesCode[0]] = false
+				this.setData(param)
+			}
+		}else{
+			wx.showToast({
+				title: "用户名不可为空",
+				icon: "none",
+				duration: 2000
+		})
+	}
+	this._judgeRegSumbit()
+	},
+
+	registrPhoneNum: function (event) {
+		let phoneNum = event.detail.value
+	},
+
+	registrUserPwd: function (event) {
+		let pwd = event.detail.value
+	},
+
+	_registrUserPwd: function (event) {
+		let _pwd = event.detail.value
+	},
+
+	invited_code: function (event) {
+		let invitedCode = event.detail.value
 	},
 
 	/**
@@ -69,7 +107,19 @@ Page({
 
 	},
 
-	_rulesCode: function () {
-		
+	_judgeRegSumbit: function () {
+		let rulesCode = this.data.rulesCode
+		for(var i = 0; i < rulesCode.length;i++){
+			if(!rulesCode[i]){
+				this.setData({
+					regsumbit: false
+				})
+			}else{
+				this.setData({
+					regsumbit: true
+				})
+				break
+			}
+		}
 	}
 })

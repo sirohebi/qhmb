@@ -3,12 +3,12 @@
 	<view class="content">
 		<text class="title">用户注册</text>
 		<view class="registr">
-			<l-input label-width="180" class="username" label-layout="right" type="text" label="用户名" />
-			<l-input label-width="180" class="move_phone" label-layout="right" type="number" label="联系电话" />
-			<l-input label-width="180" class="userPwd" label-layout="right" type="password" label="密码" />
-			<l-input label-width="180" class="_userPwd" label-layout="right" type="password" label="再输入密码" />
-			<l-input label-width="180" class="invited_code" label-layout="right" type="text" label="邀请码" />
+			<l-input label-width="180" class="username" bind:linblur="registrUserName" label-layout="right" type="text" label="用户名" />
+			<l-input label-width="180" class="move_phone" bind:linblur="registrPhoneNum" label-layout="right" type="number" label="联系电话" />
+			<l-input label-width="180" class="userPwd" bind:linblur="registrUserPwd" label-layout="right" type="password" label="密码" />
+			<l-input label-width="180" class="_userPwd" bind:linblur="_registrUserPwd" label-layout="right" type="password" label="再输入密码" />
+			<l-input label-width="180" class="invited_code" bind:linblur="invited_code" label-layout="right" type="text" label="邀请码" />
 		</view>
-		<l-button class="reg_sumbit">提交注册</l-button>
+		<l-button class="reg_sumbit" disabled="{{regsumbit}}" bind:lintap="regSumbit">提交注册</l-button>
 	</view>
 </view>
