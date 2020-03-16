@@ -20,8 +20,19 @@
     margin-bottom: 14rpx;
 }
 
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500rpx;
+}
+
 .registr{
     width: 500rpx;
     background-color: #ededed;
     margin-bottom: 20rpx;
+}
+
+.reg_sumbit{
+    margin-left: 32%;
 }
