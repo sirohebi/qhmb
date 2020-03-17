@@ -1,2 +1,7 @@
 <!--miniprogram/pages/pwd_re/pwd_re.wxml-->
-<text>miniprogram/pages/pwd_re/pwd_re.wxml</text>
+<view class="container">
+    <form class="content">
+        <l-input class="input" label="联系方式" label-layout="right" placeholder="输入您的注册手机号码"></l-input>
+        <button form-type="submit">确认提交</button>
+    </form>
+</view>

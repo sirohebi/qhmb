@@ -1,1 +1,6 @@
 /* miniprogram/pages/pwd_re/pwd_re.wxss */
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

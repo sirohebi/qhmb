@@ -47,6 +47,13 @@
 					"id": -1,
 					"name": "pages/reg_user/reg_user",
 					"pathName": "pages/reg_user/reg_user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/pwd_re/pwd_re",
+					"pathName": "pages/pwd_re/pwd_re",
 					"scene": null
 				}
 			]
