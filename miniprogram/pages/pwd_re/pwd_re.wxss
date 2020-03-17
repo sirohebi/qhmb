@@ -1,6 +1,26 @@
 /* miniprogram/pages/pwd_re/pwd_re.wxss */
-.container{
+
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.content {
+    width: 600rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30%;
+}
+
+.title {
+    font-size: 60rpx;
+    margin-left: 31%;
+}
+
+.num1 {
+    margin-top: 18rpx;
+    background-color: #ededed;
+    margin-bottom: 18rpx;
 }
