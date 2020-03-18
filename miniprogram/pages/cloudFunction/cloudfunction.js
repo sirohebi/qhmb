@@ -1,20 +1,38 @@
-class CLOUDFUNCTION{
-    userRegistr(userInfo){
+class CLOUDFUNCTION {
+    userRegistr(userInfo) {
         const db = wx.cloud.database()
-        console.log(userInfo)
         db.collection('user').add({
-            data:{
+            data: {
                 name: userInfo.username,
                 password: userInfo.userpwd,
                 phonenum: userInfo.phonenum,
                 invitedcode: userInfo.invitedcode
             }
-        }).then(res =>{
+        }).then(res => {
             console.log(res)
-        }).catch(err =>{
+        }).catch(err => {
             console.log(err)
+        })
+    }
+
+    pwd_reset(phoneNum) {
+        return new Promise(function (reslove, reject) {
+            const db = wx.cloud.database()
+            db.collection('user').where({ phonenum: phoneNum }).get().then(res => {
+                reslove(res)
+            }).catch(err => {
+                reject(err)
+            })
+        })
+
+    }
+
+    pwdUpdate(newPwd){
+        return new Promise(function(reslove,reject){
+            const db = wx.cloud.database()
+            db.collection('user').where
         })
     }
 }
 
-export {CLOUDFUNCTION}
+export { CLOUDFUNCTION }
