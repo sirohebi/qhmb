@@ -8,8 +8,7 @@ Page({
      */
     data: {
         rules: false,
-        phoneNumRules: true,
-        phoneNum:''
+        phoneNumRules: true
     },
 
     /**
@@ -25,10 +24,12 @@ Page({
             phoneNum: phoneNum
         })
         cloudFunction.pwd_reset(phoneNum).then((res) => {
+            console.log(res)
             if (res.data[0]) {
                 this.setData({
                     rules: true,
-                    phoneNumRules: false
+                    phoneNumRules: false,
+                    _id: res.data[0]._id
                 })
             }else{
                 wx.showToast({
@@ -46,8 +47,14 @@ Page({
     pwdReset:function (e){
         let newpwd = e.detail.value.newpwd
         let new_pwd = e.detail.value.new_pwd
+        let _id = this.data._id
+        console.log(_id)
         if(newpwd == new_pwd){
-            
+            cloudFunction.pwdUpdate(newpwd, _id).then((res)=>{
+                console.log(res)
+            },(err)=>{
+                console.log(err)
+            })
         }else{
             wx.showToast({
                 title: "你两次输入的密码不相符",

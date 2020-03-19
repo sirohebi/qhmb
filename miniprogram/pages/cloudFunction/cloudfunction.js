@@ -27,10 +27,31 @@ class CLOUDFUNCTION {
 
     }
 
-    pwdUpdate(newPwd){
-        return new Promise(function(reslove,reject){
+    pwdUpdate(newPwd, _id) {
+        return new Promise(function (reslove, reject) {
             const db = wx.cloud.database()
-            db.collection('user').where
+            db.collection('user').doc(_id).update({
+                data: {
+                    password: newPwd
+                }
+            }).then(res => {
+                reslove(res)
+            }).catch(err => {
+                reject(err)
+            })
+        })
+    }
+
+    userInfoGet(name) {
+        return new Promise(function (reslove, reject) {
+            const db = wx.cloud.database()
+            db.collection('user').where({
+                name: name
+            }).get().then(res => {
+                reslove(res.data)
+            }).catch(err => {
+                reject(err)
+            })
         })
     }
 }

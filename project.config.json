@@ -54,6 +54,13 @@
 					"id": -1,
 					"name": "pages/pwd_re/pwd_re",
 					"pathName": "pages/pwd_re/pwd_re",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
 					"scene": null
 				}
 			]

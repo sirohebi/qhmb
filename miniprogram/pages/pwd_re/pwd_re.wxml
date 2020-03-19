@@ -11,8 +11,8 @@
     <form class="content" wx:if="{{rules}}" bindsubmit="pwdReset">
         <text class="title">重置密码</text>
         <view class="num1">
-            <l-input label="新密码" name="newpwd" label-layout="right" placeholder="请输入新的密码"></l-input>
-            <l-input label="确定新密码" name="new_pwd" label-layout="right" placeholder="请您再次输入新的密码"></l-input>
+            <l-input label="新密码" type="password" name="newpwd" label-layout="right" placeholder="请输入新的密码"></l-input>
+            <l-input label="确定新密码" type="password" name="new_pwd" label-layout="right" placeholder="请您再次输入新的密码"></l-input>
         </view>
         <button form-type="submit">确定修改</button>
     </form>

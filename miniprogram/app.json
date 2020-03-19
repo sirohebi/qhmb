@@ -3,7 +3,11 @@
 		"pages/logins/logins",
 		"pages/reg_user/reg_user",
 		"pages/pwd_re/pwd_re",
-		"pages/index/index"
+		"pages/index/index",
+		"pages/Invitation/Invitation",
+		"pages/Sign/Sign",
+		"pages/statistics/statistics",
+		"pages/user_manage/user_manage"
 	],
 	"window": {
 		"backgroundColor": "#F6F6F6",
@@ -11,6 +15,33 @@
 		"navigationBarBackgroundColor": "#F6F6F6",
 		"navigationBarTitleText": "青禾美邦活动管理系统",
 		"navigationBarTextStyle": "black"
+	},
+	"tabBar": {
+		"list": [
+			
+			{
+				"pagePath": "pages/Invitation/Invitation",
+				"text": "邀约"
+			},
+			{
+				"pagePath": "pages/Sign/Sign",
+				"text": "签到"
+			},
+			{
+				"pagePath": "pages/index/index",
+				"text": "",
+				"iconPath": "/images/logo1.png",
+				"selectedIconPath": "/images/logo1.png"
+			},
+			{
+				"pagePath": "pages/statistics/statistics",
+				"text": "统计"
+			},
+			{
+				"pagePath": "pages/user_manage/user_manage",
+				"text": "用户"
+			}
+		]
 	},
 	"sitemapLocation": "sitemap.json",
 	"style": "v2"
