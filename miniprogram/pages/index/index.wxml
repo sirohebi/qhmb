@@ -1,1 +1,13 @@
-<!--miniprogram/pages/index/index.wxml-->
+<!-- miniprogram/pages/index/index.wxml -->
+<view class="container">
+    <view class="content">
+        <l-card type="cover" image="/images/16比9.jpg" title="7.20百万现金免单夜">
+            <view>
+                活动期间，凭商场各品牌店面统一销售单和交款单到商场售后服务中心加盖售后服务专用章，参与“区域免单”活动，中奖区域所有有效订单免实付金额的40%，不限名额不限量，买得多免得多。
+            </view>
+        </l-card>
+    </view>
+    <l-card class="add" plaintext="true" type="cover">
+        <l-icon size="50" name="add"></l-icon>
+    </l-card>
+</view>

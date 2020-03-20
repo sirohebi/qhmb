@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    
+    "l-card": "/miniprogram_npm/lin-ui/card/index",
+    "l-icon": "/miniprogram_npm/lin-ui/icon/index"
   }
 }
