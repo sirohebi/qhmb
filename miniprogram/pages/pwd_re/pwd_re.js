@@ -19,11 +19,11 @@ Page({
     },
 
     verifyReset: function (e) {
-        let phoneNum = e.detail.value.phoneNum
+        let Invitation_code = e.detail.value.Invitation_code
         this.setData({
-            phoneNum: phoneNum
+            Invitation_code: Invitation_code
         })
-        cloudFunction.pwd_reset(phoneNum).then((res) => {
+        cloudFunction.pwd_reset(Invitation_code).then((res) => {
             console.log(res)
             if (res.data[0]) {
                 this.setData({
@@ -33,7 +33,7 @@ Page({
                 })
             }else{
                 wx.showToast({
-                    title: "你输入的号码不存在，请重新输入",
+                    title: "你输入的邀请码不存在，请重新输入",
                     icon: "none",
                     duration: 2000
                 })

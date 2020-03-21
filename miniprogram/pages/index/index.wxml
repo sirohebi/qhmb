@@ -7,7 +7,7 @@
             </view>
         </l-card>
     </view>
-    <l-card class="add" plaintext="true" type="cover">
+    <l-card bind:tap="activityAdd" class="add" plaintext="true" type="cover">
         <l-icon size="50" name="add"></l-icon>
     </l-card>
 </view>

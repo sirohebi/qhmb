@@ -15,10 +15,10 @@ class CLOUDFUNCTION {
         })
     }
 
-    pwd_reset(phoneNum) {
+    pwd_reset(Invitation_code) {
         return new Promise(function (reslove, reject) {
             const db = wx.cloud.database()
-            db.collection('user').where({ phonenum: phoneNum }).get().then(res => {
+            db.collection('user').where({ invitedcode: Invitation_code }).get().then(res => {
                 reslove(res)
             }).catch(err => {
                 reject(err)
@@ -50,6 +50,34 @@ class CLOUDFUNCTION {
             }).get().then(res => {
                 reslove(res.data)
             }).catch(err => {
+                reject(err)
+            })
+        })
+    }
+
+    getOpenid(openid) {
+        return new Promise(function (reslove, reject) {
+            const db = wx.cloud.database()
+            db.collection('Invitation_code').where({
+                _openid: openid
+            }).get().then(res => {
+                reslove(res)
+            }).catch(err => {
+                reject(err)
+            })
+        })
+    }
+
+    invitedcodeAdd(invitedCode) {
+        return new Promise(function (reslove, reject) {
+            const db = wx.cloud.database()
+            db.collection('Invitation_code').add({
+                data:{
+                    invitedCode: invitedCode
+                }
+            }).then(res=>{
+                reslove(res)
+            }).catch(err=>{
                 reject(err)
             })
         })

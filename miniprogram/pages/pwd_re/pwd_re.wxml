@@ -3,7 +3,7 @@
     <form wx:if="{{phoneNumRules}}" class="content" bindsubmit="verifyReset">
         <text class="title">身份校验</text>
         <view class="num1">
-            <l-input label="联系方式" name="phoneNum" label-layout="right" placeholder="输入您的注册手机号码"></l-input>
+            <l-input label="邀请码" name="Invitation_code" label-layout="right" placeholder="输入您的注册邀请码"></l-input>
         </view>
         <button form-type="submit">确认提交</button>
     </form>

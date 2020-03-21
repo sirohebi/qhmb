@@ -11,6 +11,7 @@
 				<l-input label-width="180" name="invitedcode" class="invited_code" bind:linblur="invited_code" label-layout="right" type="text" label="邀请码" />
 			</view>
 			<button form-type="submit" class="reg_sumbit" disabled="{{regsumbit}}">提交注册</button>
+			<button class="reg_sumbit" bind:tap="getInvitedCode">领邀请码</button>
 		</form>
 	</view>
 </view>

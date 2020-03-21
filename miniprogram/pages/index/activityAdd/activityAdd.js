@@ -1,4 +1,4 @@
-// miniprogram/pages/index/index.js
+// miniprogram/pages/index/activityAdd/activityAdd.js
 Page({
 
 	/**
@@ -13,12 +13,6 @@ Page({
 	 */
 	onLoad: function (options) {
 
-	},
-
-	activityAdd: function (e) {
-		wx.navigateTo({
-			url:'activityAdd/activityAdd'
-		})
 	},
 
 	/**

@@ -1,5 +1,5 @@
 // miniprogram/pages/reg_user/reg_user.js
-import {CLOUDFUNCTION} from '../cloudFunction/cloudfunction.js'
+import { CLOUDFUNCTION } from '../cloudFunction/cloudfunction.js'
 const cloudFunction = new CLOUDFUNCTION()
 Page({
 
@@ -15,7 +15,8 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-
+		var a = 10, b = 20;
+		console.log(10 === (a || b))
 	},
 
 	registrUserName: function (event) {
@@ -149,28 +150,81 @@ Page({
 	invited_code: function (event) {
 		let invitedCode = event.detail.value
 		let rulesCode = this.data.rulesCode
-		if (invitedCode == 'qh001' || invitedCode == 'qh002' || invitedCode == "qh003") {
-			rulesCode[4] = false
-			this.setData({
-				rulesCode: rulesCode
-			})
-		} else {
-			wx.showToast({
-				title: "你输入的邀请码不存在",
-				icon: "none",
-				duration: 2000
-			})
-			rulesCode[4] = true
-			this.setData({
-				rulesCode: rulesCode
-			})
-		}
-		this._judgeRegSumbit()
+		let openid = this._getOpenid()
+		cloudFunction.getOpenid(openid).then((res) => {
+			let getInvitedCode = res.data[0].invitedCode
+			if (invitedCode == getInvitedCode) {
+				rulesCode[4] = false
+				this.setData({
+					rulesCode: rulesCode
+				})
+			} else {
+				wx.showToast({
+					title: "你输入的邀请码不存在",
+					icon: "none",
+					duration: 2000
+				})
+				rulesCode[4] = true
+				this.setData({
+					rulesCode: rulesCode
+				})
+			}
+			this._judgeRegSumbit()
+		}, (err) => {
+
+		})
+
 	},
 
-	regSumbit: function (e){
+	regSumbit: function (e) {
+		//St7Tif
 		let userInfo = e.detail.value
-		cloudFunction.userRegistr(userInfo)
+		cloudFunction.userInfoGet(userInfo.username).then((res) => {
+			if (res[0].name == userInfo.username || res[0].invitedcode == userInfo.invitedcode) {
+				wx.showToast({
+					title: "你的用户名或邀请码已存在",
+					icon: "none",
+					duration: 2000
+				})
+			} else {
+				cloudFunction.userRegistr(userInfo)
+			}
+		}, (err) => {
+
+		})
+	},
+
+	getInvitedCode: function () {
+		let openid = this._getOpenid()
+		cloudFunction.getOpenid(openid).then((res) => {
+			if (res.data[0]) {
+				wx.showToast({
+					title: "每个用户只能领取一个邀请码",
+					icon: "none",
+					duration: 2000
+				})
+			} else {
+				let str = "",
+					range = 20,//min
+					arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+				// 随机产生
+				if (true) {
+					range = Math.round(Math.random() * (36 - 20)) + 20;
+				}
+				for (var i = 0; i < range; i++) {
+					let pos = Math.round(Math.random() * (arr.length - 1));
+					str += arr[pos];
+				}
+				let invitedCode = str.substr(1, 6)
+				cloudFunction.invitedcodeAdd(invitedCode).then((res) => {
+
+				}, (err) => {
+
+				})
+			}
+		}, (err) => {
+			console.log(err)
+		})
 	},
 
 	/**
@@ -222,6 +276,7 @@ Page({
 
 	},
 
+	//用来判断所有输入框是否已经正确输入，如果正确输入了则改变提交按钮的状态为可用
 	_judgeRegSumbit: function () {
 		let rulesCode = this.data.rulesCode
 		for (var i = 0; i < rulesCode.length; i++) {
@@ -236,5 +291,15 @@ Page({
 				break
 			}
 		}
+	},
+
+	//获取用户openid来判断是否已经领取过邀请码
+	_getOpenid() {
+		wx.cloud.callFunction({
+			name: 'getOpenId',
+			complete: res => {
+				return res.result.openid
+			}
+		})
 	}
 })
