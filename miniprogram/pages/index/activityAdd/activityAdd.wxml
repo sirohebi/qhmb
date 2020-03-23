@@ -1,2 +1,13 @@
-<!--miniprogram/pages/index/activityAdd/activityAdd.wxml-->
-<text>miniprogram/pages/index/activityAdd/activityAdd.wxml</text>
+<!-- miniprogram/pages/index/activityAdd/activityAdd.wxml -->
+<view class="container">
+    <text class="">活动新增</text>
+    <l-from>
+        <view class="">
+            <l-input label="活动标题" label-layout="right" placeholder="请输入活动标题"></l-input>
+        </view>
+        <text class="">标题图片</text>
+        <l-image-picker></l-image-picker>
+        <text class="">活动简介</text>
+        <l-textarea auto-height="true" maxlength="-1"></l-textarea>
+    </l-from>
+</view>

@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "l-form": "/miniprogram_npm/lin-ui/form/index",
+    "l-input": "/miniprogram_npm/lin-ui/input/index",
+    "l-button": "/miniprogram_npm/lin-ui/button/index",
+    "l-image-picker": "/miniprogram_npm/lin-ui/image-picker/index",
+    "l-textarea": "/miniprogram_npm/lin-ui/textarea/index"
+  }
 }
