@@ -16,7 +16,7 @@ class CLOUDFUNCTION {
     }
 
     pwd_reset(Invitation_code) {
-        return new Promise(function (reslove, reject) {
+        return new Promise(function(reslove, reject) {
             const db = wx.cloud.database()
             db.collection('user').where({ invitedcode: Invitation_code }).get().then(res => {
                 reslove(res)
@@ -28,7 +28,7 @@ class CLOUDFUNCTION {
     }
 
     pwdUpdate(newPwd, _id) {
-        return new Promise(function (reslove, reject) {
+        return new Promise(function(reslove, reject) {
             const db = wx.cloud.database()
             db.collection('user').doc(_id).update({
                 data: {
@@ -43,7 +43,7 @@ class CLOUDFUNCTION {
     }
 
     userInfoGet(name) {
-        return new Promise(function (reslove, reject) {
+        return new Promise(function(reslove, reject) {
             const db = wx.cloud.database()
             db.collection('user').where({
                 name: name
@@ -56,7 +56,7 @@ class CLOUDFUNCTION {
     }
 
     getOpenid(openid) {
-        return new Promise(function (reslove, reject) {
+        return new Promise(function(reslove, reject) {
             const db = wx.cloud.database()
             db.collection('Invitation_code').where({
                 _openid: openid
@@ -69,16 +69,30 @@ class CLOUDFUNCTION {
     }
 
     invitedcodeAdd(invitedCode) {
-        return new Promise(function (reslove, reject) {
+        return new Promise(function(reslove, reject) {
             const db = wx.cloud.database()
             db.collection('Invitation_code').add({
-                data:{
+                data: {
                     invitedCode: invitedCode
                 }
-            }).then(res=>{
+            }).then(res => {
                 reslove(res)
-            }).catch(err=>{
+            }).catch(err => {
                 reject(err)
+            })
+        })
+    }
+
+    activityAdd(activitydata) {
+        return new Promise(function(reslove, reject) {
+            const db = wx.cloud.database()
+            db.collection('activity').add({
+                data: {
+                    title: activitydata.title,
+                    image: activitydata.image,
+                    abstract: activitydata.avstract,
+                    content: activitydata.content
+                }
             })
         })
     }

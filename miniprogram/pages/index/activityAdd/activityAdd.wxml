@@ -1,13 +1,22 @@
 <!-- miniprogram/pages/index/activityAdd/activityAdd.wxml -->
 <view class="container">
-    <text class="">活动新增</text>
-    <l-from>
-        <view class="">
-            <l-input label="活动标题" label-layout="right" placeholder="请输入活动标题"></l-input>
+    <text class="title">活动新增</text>
+    <form class="form" bindsubmit="activityAdd">
+        <view class="input content">
+            <l-input label="活动标题" name="title" label-layout="right" placeholder="请输入活动标题"></l-input>
         </view>
-        <text class="">标题图片</text>
-        <l-image-picker></l-image-picker>
-        <text class="">活动简介</text>
-        <l-textarea auto-height="true" maxlength="-1"></l-textarea>
-    </l-from>
+        <view class="content">
+            <text class="imagetext">标题图片</text>
+            <l-image-picker count="1" size-type="compressed" name="image"></l-image-picker>
+        </view>
+        <view class="content">
+            <text class="abstract">活动简介</text>
+            <textarea name="abstract" class="textarea" maxlength="140" placeholder="请输入此次活动的简介内容……"></textarea>
+        </view>
+        <view class="content">
+            <text class="">活动内容</text>
+            <textarea class="textarea" name="content" maxlength="-1" placeholder="请输入本次活动的主体内容……" auto-height="true"></textarea>
+        </view>
+        <button form-type="submit">活动新增</button>
+    </form>
 </view>

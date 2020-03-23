@@ -1,1 +1,29 @@
 /* miniprogram/pages/index/activityAdd/activityAdd.wxss */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content {
+    margin-bottom: 16rpx;
+}
+
+.form {
+    width: 700rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input {
+    background-color: #ededed;
+}
+
+.textarea {
+    background-color: #f2f2f2;
+    border: solid #d3d3d3 2rpx;
+    height: 200rpx;
+    width: 700rpx;
+}
