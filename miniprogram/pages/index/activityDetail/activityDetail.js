@@ -1,5 +1,5 @@
-// miniprogram/pages/index/index.js
-import {CLOUDFUNCTION} from "../cloudFunction/cloudfunction.js"
+// miniprogram/pages/index/activityDetail/activityDetail.js
+import {CLOUDFUNCTION} from '../../cloudFunction/cloudfunction.js'
 const cloudFunction = new CLOUDFUNCTION()
 Page({
 
@@ -7,32 +7,18 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		activityData:[]
+
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		cloudFunction.getActivityData().then((res)=>{
-			this.setData({
-				activityData:res
-			})
+		let id = options.id
+		cloudFunction.getActivityData(id).then((res)=>{
+			console.log(res)
 		},(err)=>{
-			console.log(err)
-		})
-	},
 
-	activityDetail: function (e){
-		let id = e.currentTarget.dataset.id
-		wx.navigateTo({
-			url:'activityDetail/activityDetail?id=' + id
-		})
-	},
-
-	activityAdd: function (e) {
-		wx.navigateTo({
-			url:'activityAdd/activityAdd'
 		})
 	},
 

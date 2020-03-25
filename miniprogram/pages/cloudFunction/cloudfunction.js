@@ -90,9 +90,24 @@ class CLOUDFUNCTION {
                 data: {
                     title: activitydata.title,
                     image: activitydata.image,
-                    abstract: activitydata.avstract,
+                    abstract: activitydata.abstract,
                     content: activitydata.content
                 }
+            }).then(res=>{
+                reslove(res)
+            }).catch(err=>{
+                reject(err)
+            })
+        })
+    }
+
+    getActivityData(id){
+        return new Promise(function(reslove,reject){
+            const db = wx.cloud.database()
+            db.collection('activity').where({_id:id}).get().then(res=>{
+                reslove(res.data)
+            }).catch(err=>{
+                reject(err)
             })
         })
     }
