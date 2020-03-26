@@ -17,6 +17,9 @@ Page({
 		let id = options.id
 		cloudFunction.getActivityData(id).then((res)=>{
 			console.log(res)
+			this.setData({
+				content: res[0]
+			})
 		},(err)=>{
 
 		})

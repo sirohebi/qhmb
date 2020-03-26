@@ -1,2 +1,10 @@
 <!--miniprogram/pages/index/activityDetail/activityDetail.wxml-->
-<text>miniprogram/pages/index/activityDetail/activityDetail.wxml</text>
+<view>
+	<swiper>
+		<swiper-item><image src="{{content.image}}"></image></swiper-item>
+	</swiper>
+	<view>
+		<text>{{content.title}}</text>
+	</view>
+	<view>{{content.content}}</view>
+</view>
