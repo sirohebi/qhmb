@@ -7,7 +7,8 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-
+		idea:false,
+		activity:false
 	},
 
 	/**
@@ -22,6 +23,12 @@ Page({
 			})
 		},(err)=>{
 
+		})
+	},
+
+	getToIdea: function(e){
+		wx.navigateTo({
+			url:"../../idea/idea"
 		})
 	},
 

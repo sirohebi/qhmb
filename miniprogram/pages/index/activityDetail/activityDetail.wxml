@@ -1,10 +1,18 @@
 <!--miniprogram/pages/index/activityDetail/activityDetail.wxml-->
 <view>
-	<swiper>
-		<swiper-item><image src="{{content.image}}"></image></swiper-item>
+	<swiper class="swiper" style="height:400rpx">
+		<swiper-item>
+			<image style="width:100%" src="{{content.image}}"></image>
+		</swiper-item>
 	</swiper>
-	<view>
-		<text>{{content.title}}</text>
+	<view class="content">
+		<view class="title">
+			<text>{{content.title}}</text>
+		</view>
+		<view class="subject">{{content.content}}</view>
+		<view class="button">
+			<l-button disabled="{{idea}}" icon="comment" icon-color="#fff" bind:lintap="getToIdea">意见/评论</l-button>
+			<l-button disabled="{{activity}}" icon="history" icon-color="#fff" bind:lintap="getActivity">参与活动</l-button>
+		</view>
 	</view>
-	<view>{{content.content}}</view>
 </view>

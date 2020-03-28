@@ -1,0 +1,9 @@
+<!--miniprogram/pages/idea/idea.wxml-->
+<view class="">
+    <text class="username"></text>
+    <view class="idea"></view>
+    <view >
+        <text class="date"></text>
+        <v-icon name="good-job-o"></v-icon>
+    </view>
+</view>

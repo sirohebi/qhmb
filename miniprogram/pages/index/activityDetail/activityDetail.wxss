@@ -1,1 +1,26 @@
 /* miniprogram/pages/index/activityDetail/activityDetail.wxss */
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.title{
+    text-align: center;
+    font-size: 50rpx;
+    font-weight: bolder;
+}
+
+.subject{
+    padding: 20rpx;
+    white-space:pre-wrap;
+    line-height: 50rpx;
+}
+
+.button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 10rpx;
+}

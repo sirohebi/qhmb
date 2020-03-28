@@ -9,7 +9,8 @@
 		"pages/statistics/statistics",
 		"pages/user_manage/user_manage",
 		"pages/index/activityAdd/activityAdd",
-		"pages/index/activityDetail/activityDetail"
+		"pages/index/activityDetail/activityDetail",
+		"pages/idea/idea"
 	],
 	"window": {
 		"backgroundColor": "#F6F6F6",

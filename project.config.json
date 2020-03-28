@@ -4,10 +4,24 @@
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
+		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
-		"enhance": true
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"nodeModules": true
 	},
 	"appid": "wx7d6fe8a49342431e",
 	"projectname": "qhmb",
@@ -35,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -45,29 +59,16 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/reg_user/reg_user",
-					"pathName": "pages/reg_user/reg_user",
+					"name": "pages/index/activityDetail/activityDetail",
+					"pathName": "pages/index/activityDetail/activityDetail",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/pwd_re/pwd_re",
-					"pathName": "pages/pwd_re/pwd_re",
+					"name": "pages/idea/idea",
+					"pathName": "pages/idea/idea",
 					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/index/index",
-					"pathName": "pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/index/activityAdd/activityAdd",
-					"pathName": "pages/index/activityAdd/activityAdd",
 					"scene": null
 				}
 			]
