@@ -24,3 +24,21 @@
     justify-content: space-around;
     margin-bottom: 10rpx;
 }
+
+.botton_popup{
+    height: 80%;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    background-color: #ffffff;
+    z-index: 778;
+    border-radius: 10rpx;
+}
+.ideacontent{
+    padding: 20rpx;
+    border-bottom: solid 1px #ededed;
+}
+
+.fz{
+    float: right;
+}

@@ -1,5 +1,5 @@
 <!--miniprogram/pages/idea/idea.wxml-->
-<view class="">
+<view class="container">
     <text class="username"></text>
     <view class="idea"></view>
     <view >

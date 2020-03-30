@@ -1,5 +1,8 @@
 {
   "usingComponents": {
-    "l-button": "/miniprogram_npm/lin-ui/button/index"
+    "l-button": "/miniprogram_npm/lin-ui/button/index",
+    "v-popup": "/miniprogram_npm/@vant/weapp/popup/index",
+    "l-popup": "/miniprogram_npm/lin-ui/popup/index",
+    "v-icon": "/miniprogram_npm/@vant/weapp/icon/index"
   }
 }

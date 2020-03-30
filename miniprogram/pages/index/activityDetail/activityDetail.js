@@ -26,9 +26,15 @@ Page({
 		})
 	},
 
-	getToIdea: function(e){
-		wx.navigateTo({
-			url:"../../idea/idea"
+	showIdea: function(e){
+		this.setData({
+			ideaShow:true
+		})
+	},
+
+	ideaOff: function(e){
+		this.setData({
+			ideaShow:false
 		})
 	},
 

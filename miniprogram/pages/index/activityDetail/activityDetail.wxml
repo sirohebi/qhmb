@@ -11,8 +11,23 @@
 		</view>
 		<view class="subject">{{content.content}}</view>
 		<view class="button">
-			<l-button disabled="{{idea}}" icon="comment" icon-color="#fff" bind:lintap="getToIdea">意见/评论</l-button>
+			<l-button disabled="{{idea}}" icon="comment" icon-color="#fff" bind:lintap="showIdea">意见/评论</l-button>
 			<l-button disabled="{{activity}}" icon="history" icon-color="#fff" bind:lintap="getActivity">参与活动</l-button>
 		</view>
 	</view>
 </view>
+
+<l-popup show="{{ideaShow}}" content-align="botton">
+	<view class="botton_popup">
+		<view class="pinlun">
+			<view class="ideacontent">
+				<text class="username">用户名</text>
+				<view class="idea">这活动看着很一般啊啊刀女阿囧发了卡工程那看来过后爱你发了那是尽快答复就发丝哦ask的回复卡拉回复blah法拉盛就不浪费上的会被罚款垃圾顺便理发尽快恢复能否抽空垃圾啊和flask合法阿斯兰的机房环境喀什包括哦啊两个啦</view>
+				<view class="fz">
+					<text class="date">时间</text>
+					<v-icon name="good-job-o"></v-icon>
+				</view>
+			</view>
+		</view>
+	</view>
+</l-popup>
