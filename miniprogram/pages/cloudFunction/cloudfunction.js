@@ -111,6 +111,12 @@ class CLOUDFUNCTION {
             })
         })
     }
+
+    commentAdd(comment){
+        return new Promise(function(reslove,reject){
+
+        })
+    }
 }
 
 export { CLOUDFUNCTION }

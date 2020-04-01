@@ -22,12 +22,19 @@
 		<view class="pinlun">
 			<view class="ideacontent">
 				<text class="username">用户名</text>
-				<view class="idea">这活动看着很一般啊啊刀女阿囧发了卡工程那看来过后爱你发了那是尽快答复就发丝哦ask的回复卡拉回复blah法拉盛就不浪费上的会被罚款垃圾顺便理发尽快恢复能否抽空垃圾啊和flask合法阿斯兰的机房环境喀什包括哦啊两个啦</view>
+				<view class="idea">看着还行</view>
 				<view class="fz">
-					<text class="date">时间</text>
-					<v-icon name="good-job-o"></v-icon>
+					<text class="date">2020-03-31 15:38</text>
+					<v-icon class="good_job" bind:tap="good_job" name="good-job-o"></v-icon>
+					<text class="like">9</text>
 				</view>
 			</view>
 		</view>
+		<form bindsubmit="comment">
+			<view class="comment">
+				<textarea maxlength="-1" name="comment" placeholder="说点什么把……" class="commentcontent"></textarea>
+				<button form-type="submit" size="mini" class="commentsubmit" type="primary">提交</button>
+			</view>
+		</form>
 	</view>
 </l-popup>

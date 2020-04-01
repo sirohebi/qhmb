@@ -1,14 +1,15 @@
 // miniprogram/pages/index/activityDetail/activityDetail.js
-import {CLOUDFUNCTION} from '../../cloudFunction/cloudfunction.js'
+import { CLOUDFUNCTION } from '../../cloudFunction/cloudfunction.js'
 const cloudFunction = new CLOUDFUNCTION()
+var util = require("../../../utils.js")
 Page({
 
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		idea:false,
-		activity:false
+		idea: false,
+		activity: false
 	},
 
 	/**
@@ -16,26 +17,34 @@ Page({
 	 */
 	onLoad: function (options) {
 		let id = options.id
-		cloudFunction.getActivityData(id).then((res)=>{
+		cloudFunction.getActivityData(id).then((res) => {
 			console.log(res)
 			this.setData({
 				content: res[0]
 			})
-		},(err)=>{
+		}, (err) => {
 
 		})
 	},
 
-	showIdea: function(e){
+	showIdea: function (e) {
 		this.setData({
-			ideaShow:true
+			ideaShow: true
 		})
 	},
 
-	ideaOff: function(e){
+	ideaOff: function (e) {
 		this.setData({
-			ideaShow:false
+			ideaShow: false
 		})
+	},
+
+	comment: function (e) {
+		let comment = e.detail.value
+		var date = util.formatTime(new Date())
+		console.log(comment)
+		console.log(date)
+		cloudFunction.commentAdd(comment) 
 	},
 
 	/**

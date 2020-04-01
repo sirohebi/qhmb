@@ -1,7 +1,16 @@
 //app.js
 App({
+  globalData: {
+    Y: new Date().getFullYear(),
+    M: (new Date().getMonth() + 1 < 10 ? '0' + (new Date().getMonth() + 1) : new Date().getMonth() + 1),
+    D: new Date().getDate() < 10 ? '0' + new Date().getDate() : new Date().getDate(),
+    H: new Date().getHours(),
+    i: new Date().getMinutes(),
+    s: new Date().getSeconds()
+  },
+
   onLaunch: function () {
-    
+
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
