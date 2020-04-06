@@ -113,8 +113,21 @@ class CLOUDFUNCTION {
     }
 
     commentAdd(comment){
+        console.log(comment)
         return new Promise(function(reslove,reject){
-
+            const db = wx.cloud.database()
+            db.collection('comment').add({
+                data:{
+                    comment: comment[0].comment,
+                    date:comment[0].date,
+                    username: comment[0].username,
+                    link: comment[0].link
+                }
+            }).then(res =>{
+                reslove(res)
+            }).catch(err =>{
+                reject(err)
+            })
         })
     }
 }

@@ -46,6 +46,10 @@
     vertical-align: middle;
 }
 
+.username{
+    font-size:24rpx;
+}
+
 .date{
     font-size: 24rpx;
     color: #d3d3d3;

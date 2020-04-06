@@ -76,7 +76,10 @@ Page({
 		},(err)=>{
 			console.log(err)
 		})
-		
+		wx.setStorage({
+			key:"username",
+			data: name
+		})
 	},
 
 	/**
