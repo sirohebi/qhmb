@@ -10,7 +10,8 @@ Page({
 	 */
 	data: {
 		idea: false,
-		activity: false
+		activity: false,
+		commentValue:""
 	},
 
 	/**
@@ -18,7 +19,9 @@ Page({
 	 */
 	onLoad: function (options) {
 		let id = options.id
+		this.setData({id: id})
 		cloudFunction.getActivityData(id).then((res) => {
+
 			this.setData({
 				content: res[0]
 			})
@@ -26,11 +29,11 @@ Page({
 
 		})
 		const db = wx.cloud.database()
-		db.collection('comment').where({}).get().then(res =>{
+		db.collection('comment').where({activityId: id}).get().then(res => {
 			this.setData({
 				commentData: res.data
 			})
-		}).catch(err =>{
+		}).catch(err => {
 			console.log(err)
 		})
 	},
@@ -49,8 +52,10 @@ Page({
 
 	comment: function (e) {
 		let comment = e.detail.value
+		let that = this
 		var date = util.formatTime(new Date())
 		let username = wx.getStorageSync('username')
+		let activityId = this.data.id
 		if (comment.comment == "") {
 			wx.showToast({
 				title: "评论不可为空",
@@ -69,13 +74,25 @@ Page({
 							date: date,
 							comment: comment,
 							username: username_md5,
-							link: 0
+							link: 0,
+							activityId: activityId,
+							link_conversion:true
 						}
 						comment_content.push(temp)
-						cloudFunction.commentAdd(comment_content).then((res)=>{
-							
-						},(err)=>{
-							
+						cloudFunction.commentAdd(comment_content).then((res) => {
+							if (res.errMsg == "collection.add:ok") {
+								const db = wx.cloud.database()
+								db.collection('comment').where({activityId: activityId}).get().then(res => {
+									that.setData({
+										commentData: res.data,
+										commentValue:""
+									})
+								}).catch(err => {
+									console.log(err)
+								})
+							}
+						}, (err) => {
+
 						})
 					} else if (res.cancel) {
 						let comment_content = []
@@ -83,19 +100,42 @@ Page({
 							date: date,
 							comment: comment,
 							username: username,
-							link: 0
+							link: 0,
+							activityId: activityId,
+							link_conversion:true
 						}
 						comment_content.push(temp)
-						cloudFunction.commentAdd(comment_content).then((res)=>{
+						cloudFunction.commentAdd(comment_content).then((res) => {
+							if (res.errMsg == "collection.add:ok") {
+								const db = wx.cloud.database()
+								db.collection('comment').where({activityId: activityId}).get().then(res => {
+									that.setData({
+										commentData: res.data,
+										commentValue:""
+									})
+								}).catch(err => {
+									console.log(err)
+								})
+							}
+						}, (err) => {
 
-						},(err)=>{
-							
 						})
 					}
 				}
 			})
 		}
 
+	},
+
+	goodJob:function(e){
+		let commentId = e.currentTarget.dataset.commentid
+		const list = this.data.commentData
+		let comment_status = list[commentId].link_conversion
+		let key = `list[${commentId}].link_conversion`
+		this.setData({
+			[key]: !comment_status
+		})
+		console.log(this.data.commentData)
 	},
 
 	/**

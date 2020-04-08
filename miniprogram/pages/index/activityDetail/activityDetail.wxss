@@ -39,6 +39,10 @@
     border-bottom: solid 1px #ededed;
 }
 
+.pinlun{
+    height: 93%;
+}
+
 .fz{
     float: right;
     bottom: 10rpx;

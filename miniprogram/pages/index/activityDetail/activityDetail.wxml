@@ -19,20 +19,24 @@
 
 <l-popup show="{{ideaShow}}" content-align="botton">
 	<view class="botton_popup">
-		<view wx:for="{{commentData}}" class="pinlun">
-			<view class="ideacontent">
-				<text class="username">{{item.username}}</text>
-				<view class="idea">{{item.comment.comment}}</view>
-				<view class="fz">
-					<text class="date">{{item.date}}</text>
-					<v-icon class="good_job" bind:tap="good_job" name="good-job-o"></v-icon>
-					<text class="like">{{item.link}}</text>
+		<scroll-view scroll-y="true" class="pinlun">
+			<view wx:for="{{commentData}}" wx:key="index">
+				<view class="ideacontent">
+					<text class="username">{{item.username}}</text>
+					<view class="idea">{{item.comment.comment}}</view>
+					<view class="fz">
+						<text class="date">{{item.date}}</text>
+						<v-icon class="good_job" data-commentId="{{index}}" wx:if="{{item.link_conversion}}" bind:click="goodJob" name="good-job-o"></v-icon>
+						<v-icon class="good_job" data-commentId="{{index}}" wx:else bind:click="goodJob" name="good-job"></v-icon>
+						<text class="like">{{item.link}}</text>
+					</view>
 				</view>
 			</view>
-		</view>
+
+		</scroll-view>
 		<form bindsubmit="comment">
 			<view class="comment">
-				<textarea maxlength="-1" name="comment" placeholder="说点什么把……" class="commentcontent"></textarea>
+				<textarea value="{{commentValue}}" maxlength="-1" name="comment" placeholder="说点什么把……" class="commentcontent"></textarea>
 				<button form-type="submit" size="mini" class="commentsubmit" type="primary">提交</button>
 			</view>
 		</form>
