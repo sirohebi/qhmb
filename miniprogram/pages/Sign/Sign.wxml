@@ -1,2 +1,13 @@
-<!--miniprogram/pages/Sign/Sign.wxml-->
-<text>miniprogram/pages/Sign/Sign.wxml</text>
+<!-- miniprogram/pages/Sign/Sign.wxml -->
+<view class="connertai">
+    <view class="head">
+        <text>签到详情</text>
+    </view>
+    <view class="sign-content">
+        <image class="sign-img" bind:tap="onScanCode" src="../../images/签到(大图).png" />
+        <form class="sign-form" bindsubmit="onSignNum">
+            <input placeholder="请输入签到编号……" name="sign_num" value="{{sign_num}}" class="sign-input" type="text" />
+            <button class="sign-submit" form-type="submit">签到</button>
+        </form>
+    </view>
+</view>

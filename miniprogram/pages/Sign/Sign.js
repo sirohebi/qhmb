@@ -15,6 +15,25 @@ Page({
 
 	},
 
+	onScanCode:function(){
+		let that = this
+		wx.scanCode({
+			onlyFromCamera:false,
+			success(res){
+				let condeNum = res.result
+				let yaoqin_num = condeNum.substr(19,29)
+				that.setData({
+					yaoqin_num: yaoqin_num
+				})
+			}
+		})
+	},
+
+	onSignNum:function(e){
+		let sign_num = e.detail.value.sign_num
+		
+	},
+
 	/**
 	 * 生命周期函数--监听页面初次渲染完成
 	 */

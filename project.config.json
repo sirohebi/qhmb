@@ -66,9 +66,8 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/idea/idea",
-					"pathName": "pages/idea/idea",
-					"query": "",
+					"name": "pages/Sign/Sign",
+					"pathName": "pages/Sign/Sign",
 					"scene": null
 				}
 			]

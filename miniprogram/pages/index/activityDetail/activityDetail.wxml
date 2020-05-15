@@ -26,8 +26,8 @@
 					<view class="idea">{{item.comment.comment}}</view>
 					<view class="fz">
 						<text class="date">{{item.date}}</text>
-						<v-icon class="good_job" data-commentId="{{index}}" wx:if="{{item.link_conversion}}" bind:click="goodJob" name="good-job-o"></v-icon>
-						<v-icon class="good_job" data-commentId="{{index}}" wx:else bind:click="goodJob" name="good-job"></v-icon>
+						<v-icon class="good_job" data-commentId="{{index}}" wx:if="{{item.islink}}" bind:click="goodJob" name="good-job"></v-icon>
+						<v-icon class="good_job" data-commentId="{{index}}" wx:else bind:click="goodJob" name="good-job-o"></v-icon>
 						<text class="like">{{item.link}}</text>
 					</view>
 				</view>
